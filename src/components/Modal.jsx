@@ -72,6 +72,9 @@ export default function Modal({ driver, setDriver, closeModal, closeModalKeyDown
                     <p className="modal-text">Name: {driver.Name}</p>
                     <p className="modal-text">Nationality: {driver.Nationality}</p>
                     <p className="modal-text">Team: {driver.Team}</p> 
+                    <p className="modal-text">Officalnumber: {driver.Officalnumber}</p>
+                    <p className="modal-text">Podiums:{driver.Podiums}</p>
+                    <p className="modal-text">Wins:{driver.Wins}</p>
                     <button onClick={handleDelete}>DELETE</button>
                     <button onClick={handleUpdate}>EDIT</button>
                 </div>
