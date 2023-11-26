@@ -9,14 +9,14 @@ export const getDrivers = async () => {
     }  
 };
 
-export const createDriver = async (driverData) => {
+/*export const createDriver = async (driverData) => {
     try {
       const response = await api.post("/drivers/add", driverData);
       return response.data;
     } catch (error) {
       console.log("Error: Creating driver.", error);
     }
-  };
+  }; */
   
   export const updateDriver = async (id, driverData) => {
     try {

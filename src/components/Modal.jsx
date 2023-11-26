@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { deleteDriver } from "../services/drivers.js"
 
 
@@ -16,9 +16,11 @@ export default function Modal({ driver, closeModal, closeModalKeyDown}) {
       window.location.reload()
     }
   
-    async function handleUpdate() {
-      // update driver function
-      }
+    const [update, setUpdate] = useState(false)
+
+    function handleUpdate() {
+      setUpdate(true);
+    }
 
     return(
         <div>
@@ -26,13 +28,19 @@ export default function Modal({ driver, closeModal, closeModalKeyDown}) {
             <div tabIndex={-1} ref={ref} onKeyDown={closeModalKeyDown} className="modal-container">
 
                 <img className="modal-image" src={driver.Poster}></img>
+                {update
+                ?
+                <div> <p>Editing</p> </div>
+                :
                 <div>
-                <p className="modal-text">Name: {driver.Name}</p>
-                <p className="modal-text">Nationality: {driver.Nationality}</p>
-                <p className="modal-text">Team: {driver.Team}</p> 
-                <button onClick={handleDelete}>DELETE</button>
-                <button onClick={handleUpdate}>EDIT</button>
+                    <p className="modal-text">Name: {driver.Name}</p>
+                    <p className="modal-text">Nationality: {driver.Nationality}</p>
+                    <p className="modal-text">Team: {driver.Team}</p> 
+                    <button onClick={handleDelete}>DELETE</button>
+                    <button onClick={handleUpdate}>EDIT</button>
                 </div>
+
+                }
 
                 <button id="x" onClick={closeModal}>x</button>
             </div>
