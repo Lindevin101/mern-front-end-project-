@@ -3,7 +3,8 @@ import { deleteDriver } from "../services/drivers.js"
 
 
 export default function Modal({ driver, closeModal, closeModalKeyDown}) {
-   
+    const [update, setUpdate] = useState(false)
+    const [driver, setDriver] = useState(null)   
     const ref = useRef(null)
 
     useEffect(() => {
@@ -15,13 +16,20 @@ export default function Modal({ driver, closeModal, closeModalKeyDown}) {
       closeModal()
       window.location.reload()
     }
-  
-    const [update, setUpdate] = useState(false)
 
     function handleUpdate() {
       setUpdate(true);
     }
 
+    const handleChange = (e) => {
+        const { name, value } = e.target
+    
+        setDriver(prevDriver => ({
+          ...prevDriver,
+          [name]: value
+        }))
+      }
+    
     return(
         <div>
             <div className="overlay" onClick={closeModal}></div>
@@ -30,7 +38,30 @@ export default function Modal({ driver, closeModal, closeModalKeyDown}) {
                 <img className="modal-image" src={driver.Poster}></img>
                 {update
                 ?
-                <div> <p>Editing</p> </div>
+            
+                <div className="modal-input-container">
+                    <form className="modal-input">
+                        <label>
+                            Name:
+                            <input
+                            type="text"
+                            name="Name"
+                            value={driver.Name}
+                            onChange={handleChange}
+                            />
+                        </label>
+                        <label>
+                            Nationality:
+                            <input
+                            type="text"
+                            name="Nationality"
+                            value={driver.Nationality}
+                            onChange={handleChange}
+                            />
+                        </label>
+                        <button type="submit">Submit</button>
+                    </form>
+                <div>
                 :
                 <div>
                     <p className="modal-text">Name: {driver.Name}</p>
@@ -43,7 +74,8 @@ export default function Modal({ driver, closeModal, closeModalKeyDown}) {
                 }
 
                 <button id="x" onClick={closeModal}>x</button>
+
             </div>
         </div>
     )
-};
+}
