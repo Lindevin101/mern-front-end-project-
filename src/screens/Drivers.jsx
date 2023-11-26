@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 import { getDrivers } from "../services/drivers";
-import {Link} from "react-router-dom";
+//import {Link} from "react-router-dom";//
 import Driver from "../components/Driver.jsx";
 
 
@@ -15,9 +15,9 @@ export default function Drivers () {
     }
     return (
         <div> 
-        <Link to="/">
+       {/* <Link to="/">
             <h1>Home</h1>
-        </Link> 
+    </Link> */} 
         <h1> Drivers</h1>
         {drivers.map((driver) => (<Driver key ={driver._id} driver={driver} />))}
         </div>
