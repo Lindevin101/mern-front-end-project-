@@ -19,6 +19,7 @@ export default function Drivers () {
     const showModal = (movie) => {
         setOneDriver(driver)
         setModal(true)
+        console.log(oneDriver)
     }
     const closeModal= () => {
         setModal(false)

@@ -23,7 +23,7 @@ let navigate = useNavigate()
    const handleChange = (e) => {
     const {name, vlaue} =e.target
 
-    setDriver(prevDriver => ({
+    setDriver((prevDriver) => ({
       ...prevDriver,
       [name]: value
     }))
@@ -67,7 +67,7 @@ let navigate = useNavigate()
           />
         </label>
         <label className="create-form-label">
-          Officalnumber:
+          Officialnumber:
           <input
           className="create-form-input"
           type="number"

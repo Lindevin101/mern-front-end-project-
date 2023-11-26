@@ -34,7 +34,6 @@ export default function Modal({ driver, setDriver, closeModal, closeModalKeyDown
         setUpdate(false);
     }
     
-    
     return(
         <div>
             <div className="overlay" onClick={closeModal}></div>
@@ -49,6 +48,7 @@ export default function Modal({ driver, setDriver, closeModal, closeModalKeyDown
                         <label>
                             Name:
                             <input
+                            className="update-form-input"
                             type="text"
                             name="Name"
                             value={driver.Name}
@@ -58,9 +58,50 @@ export default function Modal({ driver, setDriver, closeModal, closeModalKeyDown
                         <label>
                             Nationality:
                             <input
+                            className="update-form-input"
                             type="text"
                             name="Nationality"
                             value={driver.Nationality}
+                            onChange={handleChange}
+                            />
+                        </label>
+                        <label>
+                            Team:
+                            <input
+                            className="update-form-input"
+                            type="text"
+                            name="Team"
+                            value={driver.Team}
+                            onChange={handleChange}
+                            />
+                        </label>
+                        <label>
+                            Officialnumber:
+                            <input
+                            className="update-form-input"
+                            type="number"
+                            name="Officialnumber"
+                            value={driver.Official}
+                            onChange={handleChange}
+                            />
+                        </label>
+                        <label>
+                            Podiums:
+                            <input
+                            className="update-form-input"
+                            type="number"
+                            name="Officialpodiums"
+                            value={driver.Podiums}
+                            onChange={handleChange}
+                            />
+                        </label>
+                        <label>
+                            Wins:
+                            <input
+                            className="update-form-input"
+                            type="number"
+                            name="Wins"
+                            value={driver.Wins}
                             onChange={handleChange}
                             />
                         </label>
@@ -75,8 +116,8 @@ export default function Modal({ driver, setDriver, closeModal, closeModalKeyDown
                     <p className="modal-text">Officalnumber: {driver.Officalnumber}</p>
                     <p className="modal-text">Podiums:{driver.Podiums}</p>
                     <p className="modal-text">Wins:{driver.Wins}</p>
-                    <button onClick={handleDelete}>DELETE</button>
                     <button onClick={handleUpdate}>EDIT</button>
+                    
                 </div>
 
                 }
