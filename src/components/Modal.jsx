@@ -1,23 +1,21 @@
 import { useEffect, useRef, useState } from "react";
-import { deleteDriver } from "../services/drivers.js"
+import { updateDriver, deleteDriver } from "../services/drivers.js"
 
 
-export default function Modal({ driver, closeModal, closeModalKeyDown}) {
-    const [update, setUpdate] = useState(false)
-    const [driver, setDriver] = useState(null)   
+export default function Modal({ driver, setDriver, closeModal, closeModalKeyDown}) {
+    const [update, setUpdate] = useState(false)  
     const ref = useRef(null)
 
     useEffect(() => {
       ref.current.focus()
     }, [])
   
-    async function handleDelete() {
+    const handleDelete = async()=> {
       await deleteDriver(driver._id)
       closeModal()
-      window.location.reload()
     }
 
-    function handleUpdate() {
+    const handleUpdate = () => {
       setUpdate(true);
     }
 
@@ -29,6 +27,13 @@ export default function Modal({ driver, closeModal, closeModalKeyDown}) {
           [name]: value
         }))
       }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await updateDriver(driver._id, movie);
+        setUpdate(false);
+    }
+    
     
     return(
         <div>
@@ -40,7 +45,7 @@ export default function Modal({ driver, closeModal, closeModalKeyDown}) {
                 ?
             
                 <div className="modal-input-container">
-                    <form className="modal-input">
+                    <form className="modal-input" onSubmit= {handleSubmit}>
                         <label>
                             Name:
                             <input

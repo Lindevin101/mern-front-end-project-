@@ -10,7 +10,7 @@ export default function Drivers () {
     const[OneDriver, setOneDriver] = useState({})
     useEffect (() => {
         fetchDrivers()
-    }, [])
+    }, [modal, drivers])
     
     async function fetchMovies() {
         const allDrivers = await getDrivers ();
@@ -33,7 +33,7 @@ export default function Drivers () {
         <h1> Drivers</h1>
         <div className="all-drivers"></div>
             {drivers.map((driver) => (<Driver key ={driver._id} driver={driver} showModal={showModal} />))}
-            {modal ? <Modal driver={oneDriver} closeModal= {closeModal} closeModalKeyDown={closeModalKeyDown}/> : null }
+            {modal ? <Modal driver={oneDriver} setDriver={setOneDriver} closeModal= {closeModal} closeModalKeyDown={closeModalKeyDown}/> : null }
         </div>
     )
 };
