@@ -15,11 +15,9 @@ export default function Drivers () {
     }
     return (
         <div> 
-       {/* <Link to="/">
-            <h1>Home</h1>
-    </Link> */} 
         <h1> Drivers</h1>
-        {drivers.map((driver) => (<Driver key ={driver._id} driver={driver} />))}
+        <div className="all-drivers"></div>
+            {drivers.map((driver) => (<Driver key ={driver._id} driver={driver} />))}
         </div>
     )
 };
