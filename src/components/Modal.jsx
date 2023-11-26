@@ -1,16 +1,10 @@
-import { useEffect, useRef } from "react";
 
 export default function Modal({ driver, closeModal, closeModalKeyDown}) {
-    const ref = useRef(null)
-
-    useEffect (() =>{
-        ref.current.focus()
-    }, [])
-
+   
     return(
         <div>
             <div className="overlay" onClick={closeModal}></div>
-            <div tabIndex={-1} ref={ref} onKeyDown={closeModalKeyDown} className="modal-container">
+            <div onKeyDown={closeModalKeyDown} className="modal-container">
 
                 <img className="modal-image" src={driver.Poster}></img>
                 <div>
