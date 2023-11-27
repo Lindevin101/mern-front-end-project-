@@ -12,8 +12,8 @@ function App() {
       <Nav />
      <Routes>
       <Route path="/" element={<Home />} />
-      <Route path ="/drivers" element={<Drivers />} />
-      <Route path ="/add-driver" element={<DriverCreate/>} />
+      <Route path="/drivers" element={<Drivers />} />
+      <Route path="/add-driver" element={<DriverCreate/>} />
      </Routes>
     </div>
   );

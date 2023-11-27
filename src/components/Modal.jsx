@@ -32,12 +32,12 @@ export default function Modal({ driver, setDriver, closeModal, closeModalKeyDown
   const handleSubmit = async (e) => {
     e.preventDefault();
     await updateDriver(driver._id, {
-      Name: driver.name,
-      Nationality: driver.nationality,
-      Team: driver.team,
-      Officialnumber: driver.officialNumber,
-      Podiums: driver.podiums,
-      Wins: driver.wins,
+      name: driver.name,
+      nationality: driver.nationality,
+      team: driver.team,
+      officialNumber: driver.officialNumber,
+      podiums: driver.podiums,
+      wins: driver.wins,
     });
     setUpdate(false);
   };
@@ -56,7 +56,7 @@ export default function Modal({ driver, setDriver, closeModal, closeModalKeyDown
                 <input
                   className="update-form-input"
                   type="text"
-                  name="Name"
+                  name="name"
                   value={driver.name}
                   onChange={handleChange}
                 />
@@ -66,7 +66,7 @@ export default function Modal({ driver, setDriver, closeModal, closeModalKeyDown
                 <input
                   className="update-form-input"
                   type="text"
-                  name="Nationality"
+                  name="nationality"
                   value={driver.nationality}
                   onChange={handleChange}
                 />
@@ -76,7 +76,7 @@ export default function Modal({ driver, setDriver, closeModal, closeModalKeyDown
                 <input
                   className="update-form-input"
                   type="text"
-                  name="Team"
+                  name="team"
                   value={driver.team}
                   onChange={handleChange}
                 />
@@ -86,7 +86,7 @@ export default function Modal({ driver, setDriver, closeModal, closeModalKeyDown
                 <input
                   className="update-form-input"
                   type="number"
-                  name="Officialnumber"
+                  name="officialNumber"
                   value={driver.officialNumber}
                   onChange={handleChange}
                 />
@@ -96,7 +96,7 @@ export default function Modal({ driver, setDriver, closeModal, closeModalKeyDown
                 <input
                   className="update-form-input"
                   type="number"
-                  name="Podiums"
+                  name="podiums"
                   value={driver.podiums}
                   onChange={handleChange}
                 />
@@ -106,7 +106,7 @@ export default function Modal({ driver, setDriver, closeModal, closeModalKeyDown
                 <input
                   className="update-form-input"
                   type="number"
-                  name="Wins"
+                  name="wins"
                   value={driver.wins}
                   onChange={handleChange}
                 />

@@ -10,12 +10,13 @@ export default function Drivers () {
     const [drivers, setDrivers] = useState ([]);
     const [modal, setModal] = useState(false)
     const[OneDriver, setOneDriver] = useState({})
+
     useEffect (() => {
         fetchDrivers()
-    }, [modal, drivers])
+    }, [])
     
     async function fetchDrivers() {
-        const allDrivers = await getDrivers ();
+        const allDrivers = await getDrivers();
         console.log(allDrivers)
         setDrivers(allDrivers);
     }
