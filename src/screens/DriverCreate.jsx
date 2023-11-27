@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { createDriver } from "../services/drivers.js"
+import React from 'react';
+
 
 export default function DriverCreate() {
   const [driver, setDriver] = useState({
@@ -21,7 +23,7 @@ let navigate = useNavigate()
    }
 
    const handleChange = (e) => {
-    const {name, vlaue} =e.target
+    const {name, value} =e.target
 
     setDriver((prevDriver) => ({
       ...prevDriver,
