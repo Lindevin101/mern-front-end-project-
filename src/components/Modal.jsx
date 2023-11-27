@@ -107,7 +107,7 @@ export default function Modal({ driver, setDriver, closeModal, closeModalKeyDown
                   className="update-form-input"
                   type="number"
                   name="Wins"
-                  value={driver.winsins}
+                  value={driver.wins}
                   onChange={handleChange}
                 />
               </label>
